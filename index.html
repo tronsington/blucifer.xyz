@@ -16,7 +16,6 @@
       --text: #e8e8f0;
       --muted: #6b6b80;
       --green: #2ecc71;
-      --red: #e74c3c;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,270 +25,199 @@
       color: var(--text);
       font-family: 'Courier New', Courier, monospace;
       min-height: 100vh;
-      padding: 24px 16px;
+      padding: 24px 16px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
 
     header {
       display: flex;
       align-items: center;
-      gap: 16px;
-      margin-bottom: 32px;
+      gap: 14px;
       padding-bottom: 20px;
       border-bottom: 1px solid var(--border);
     }
 
     .logo {
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      border-radius: 12px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
+      font-size: 22px;
       flex-shrink: 0;
     }
 
     header h1 {
-      font-size: 1.5rem;
+      font-size: 1.35rem;
       font-weight: 700;
       letter-spacing: 0.1em;
-      color: var(--text);
     }
 
-    header h1 span { color: var(--accent); }
+    header h1 .name { color: var(--accent); }
 
     .status-dot {
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
-      background: var(--muted);
+      background: var(--green);
+      box-shadow: 0 0 7px var(--green);
       display: inline-block;
-      margin-left: 12px;
-      transition: background 0.3s;
+      margin-left: 10px;
+      vertical-align: middle;
     }
 
-    .status-dot.live { background: var(--green); box-shadow: 0 0 8px var(--green); }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-    }
-
-    .card-label {
+    .subtitle {
       font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 8px;
-    }
-
-    .card-value {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .card-value.accent { color: var(--accent); }
-    .card-value.accent2 { color: var(--accent2); }
-
-    .card-sub {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 4px;
-    }
-
-    .full-row {
-      grid-column: 1 / -1;
+      margin-top: 3px;
+      letter-spacing: 0.06em;
     }
 
     .section {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 24px;
+      padding: 18px;
     }
 
-    .section h2 {
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 16px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--border);
+      margin-bottom: 10px;
     }
 
-    .pubkey-box {
+    .copy-box {
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 14px 16px;
-      font-size: 0.8rem;
+      padding: 12px 14px;
+      font-size: 0.75rem;
       word-break: break-all;
-      color: var(--accent2);
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
       cursor: pointer;
-      transition: border-color 0.2s;
-      position: relative;
+      transition: border-color 0.15s;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .pubkey-box:hover { border-color: var(--accent2); }
+    .copy-box:active { border-color: var(--accent2); }
+    @media (hover: hover) { .copy-box:hover { border-color: var(--accent2); } }
+
+    .copy-box.pubkey { color: var(--accent2); }
+    .copy-box.uri    { color: var(--accent);  font-size: 0.7rem; }
 
     .copy-hint {
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       color: var(--muted);
-      margin-top: 6px;
-    }
-
-    .address-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+      margin-top: 5px;
     }
 
     .address-item {
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 12px 16px;
+      padding: 12px 14px;
       display: flex;
-      align-items: center;
-      gap: 12px;
+      align-items: flex-start;
+      gap: 10px;
       cursor: pointer;
-      transition: border-color 0.2s;
+      transition: border-color 0.15s;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .address-item:hover { border-color: var(--accent); }
+    .address-item:active { border-color: var(--accent); }
+    @media (hover: hover) { .address-item:hover { border-color: var(--accent); } }
 
     .addr-badge {
       background: var(--surface2);
       border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 2px 8px;
-      font-size: 0.65rem;
+      border-radius: 5px;
+      padding: 2px 7px;
+      font-size: 0.6rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--accent);
       flex-shrink: 0;
+      margin-top: 1px;
     }
 
-    .addr-text {
-      font-size: 0.8rem;
+    .addr-host {
+      font-size: 0.75rem;
       color: var(--text);
       word-break: break-all;
     }
 
-    .conn-uri {
-      font-size: 0.75rem;
+    .addr-uri {
+      font-size: 0.65rem;
       color: var(--muted);
       word-break: break-all;
-      margin-top: 2px;
+      margin-top: 3px;
     }
 
-    .qr-section {
+    .qr-center {
       display: flex;
-      gap: 24px;
-      align-items: flex-start;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
     }
 
     .qr-wrapper {
       background: #fff;
       border-radius: 12px;
-      padding: 16px;
-      flex-shrink: 0;
+      padding: 14px;
     }
 
-    #qrcode canvas, #qrcode img {
-      display: block;
-    }
+    #qrcode canvas, #qrcode img { display: block; }
 
-    .qr-info {
-      flex: 1;
-      min-width: 200px;
-    }
-
-    .qr-info p {
-      font-size: 0.8rem;
+    .qr-desc {
+      font-size: 0.72rem;
       color: var(--muted);
+      text-align: center;
       line-height: 1.6;
-      margin-bottom: 12px;
-    }
-
-    .qr-uri {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 12px;
-      font-size: 0.7rem;
-      word-break: break-all;
-      color: var(--accent);
-      cursor: pointer;
-    }
-
-    .qr-uri:hover { border-color: var(--accent); }
-
-    .skeleton {
-      background: linear-gradient(90deg, var(--surface2) 25%, var(--border) 50%, var(--surface2) 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.5s infinite;
-      border-radius: 4px;
-      height: 1em;
-      width: 100%;
-    }
-
-    @keyframes shimmer {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-
-    .error-msg {
-      color: var(--red);
-      font-size: 0.8rem;
-      padding: 12px;
-      background: rgba(231,76,60,0.1);
-      border: 1px solid rgba(231,76,60,0.3);
-      border-radius: 8px;
     }
 
     .toast {
       position: fixed;
-      bottom: 24px;
-      right: 24px;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(12px);
       background: var(--surface2);
       border: 1px solid var(--accent2);
       border-radius: 8px;
-      padding: 10px 16px;
-      font-size: 0.8rem;
+      padding: 9px 18px;
+      font-size: 0.78rem;
       color: var(--accent2);
       opacity: 0;
-      transform: translateY(8px);
       transition: opacity 0.2s, transform 0.2s;
       pointer-events: none;
       z-index: 999;
+      white-space: nowrap;
     }
 
-    .toast.show { opacity: 1; transform: translateY(0); }
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
 
     footer {
       text-align: center;
       color: var(--muted);
-      font-size: 0.7rem;
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
+      font-size: 0.65rem;
+      padding-top: 4px;
+      line-height: 2;
     }
 
     footer a { color: var(--accent2); text-decoration: none; }
@@ -297,81 +225,76 @@
 </head>
 <body>
 
-<header>
-  <div class="logo">⚡</div>
-  <div>
-    <h1><span id="node-alias">BLUCIFER</span> <span id="status-dot" class="status-dot"></span></h1>
-    <div style="font-size:0.75rem; color:var(--muted); margin-top:4px;">Core Lightning Node</div>
-  </div>
-</header>
+<div class="page">
 
-<div class="grid" id="stats-grid">
-  <div class="card">
-    <div class="card-label">Channels</div>
-    <div class="card-value accent" id="stat-channels"><span class="skeleton">&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
-    <div class="card-sub" id="stat-channels-sub">&nbsp;</div>
-  </div>
-  <div class="card">
-    <div class="card-label">Capacity</div>
-    <div class="card-value" id="stat-capacity"><span class="skeleton">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
-    <div class="card-sub" id="stat-capacity-sub">&nbsp;</div>
-  </div>
-  <div class="card">
-    <div class="card-label">First Seen</div>
-    <div class="card-value accent2" id="stat-age" style="font-size:1.1rem;padding-top:4px;"><span class="skeleton">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
-    <div class="card-sub" id="stat-age-sub">&nbsp;</div>
-  </div>
-  <div class="card">
-    <div class="card-label">Last Update</div>
-    <div class="card-value" id="stat-updated" style="font-size:1.1rem;padding-top:4px;"><span class="skeleton">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
-    <div class="card-sub">&nbsp;</div>
-  </div>
-</div>
-
-<div class="section">
-  <h2>Node Identity</h2>
-  <div class="card-label" style="margin-bottom:6px;">Public Key</div>
-  <div class="pubkey-box" id="pubkey-box" onclick="copyText('0374fd7bf28122a8cef4eae815a9ee15514c3f349ee7eefd68bb6e602283461732')">
-    0374fd7bf28122a8cef4eae815a9ee15514c3f349ee7eefd68bb6e602283461732
-  </div>
-  <div class="copy-hint">Click to copy</div>
-</div>
-
-<div class="section" id="addresses-section">
-  <h2>Connection Addresses</h2>
-  <ul class="address-list" id="address-list">
-    <li style="color:var(--muted);font-size:0.8rem;">Loading addresses...</li>
-  </ul>
-</div>
-
-<div class="section">
-  <h2>Connect — QR Code</h2>
-  <div class="qr-section">
-    <div class="qr-wrapper">
-      <div id="qrcode"></div>
+  <header>
+    <div class="logo">⚡</div>
+    <div>
+      <h1><span class="name">BLUCIFER</span><span class="status-dot"></span></h1>
+      <div class="subtitle">Core Lightning Node</div>
     </div>
-    <div class="qr-info">
-      <p>Scan with any Lightning wallet to connect directly to this node. The QR encodes the full connection URI including host and port.</p>
-      <div class="card-label" style="margin-bottom:6px;">Connection URI</div>
-      <div class="qr-uri" id="qr-uri-display" onclick="copyText(document.getElementById('qr-uri-display').dataset.uri)">
-        Loading connection URI...
+  </header>
+
+  <div class="section">
+    <div class="section-label">Public Key</div>
+    <div class="copy-box pubkey" onclick="copyText('0374fd7bf28122a8cef4eae815a9ee15514c3f349ee7eefd68bb6e602283461732')">
+      0374fd7bf28122a8cef4eae815a9ee15514c3f349ee7eefd68bb6e602283461732
+    </div>
+    <div class="copy-hint">Tap to copy</div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Connection Address</div>
+    <div class="address-item" onclick="copyText('0374fd7bf28122a8cef4eae815a9ee15514c3f349ee7eefd68bb6e602283461732@na6l6l23p24gb3gwundpdvz6haiyvpziay2pmb2oe4ocfoy4wz2ltxqd.onion:9735')">
+      <span class="addr-badge">TOR</span>
+      <div>
+        <div class="addr-host">na6l6l23p24gb3gwundpdvz6haiyvpziay2pmb2oe4ocfoy4wz2ltxqd.onion:9735</div>
+        <div class="addr-uri">0374fd7bf28122a8cef4eae815a9ee15514c3f349ee7eefd68bb6e602283461732@na6l6l23p24gb3gwundpdvz6haiyvpziay2pmb2oe4ocfoy4wz2ltxqd.onion:9735</div>
       </div>
-      <div class="copy-hint">Click to copy</div>
+    </div>
+    <div class="copy-hint">Tap to copy connection URI</div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Connect via QR</div>
+    <div class="qr-center">
+      <div class="qr-wrapper">
+        <div id="qrcode"></div>
+      </div>
+      <div class="qr-desc">Scan with any Lightning wallet to open a channel or connect directly to this node.</div>
+      <div style="width:100%">
+        <div class="section-label">Connection URI</div>
+        <div class="copy-box uri" onclick="copyText('0374fd7bf28122a8cef4eae815a9ee15514c3f349ee7eefd68bb6e602283461732@na6l6l23p24gb3gwundpdvz6haiyvpziay2pmb2oe4ocfoy4wz2ltxqd.onion:9735')">
+          0374fd7bf28122a8cef4eae815a9ee15514c3f349ee7eefd68bb6e602283461732@na6l6l23p24gb3gwundpdvz6haiyvpziay2pmb2oe4ocfoy4wz2ltxqd.onion:9735
+        </div>
+        <div class="copy-hint">Tap to copy</div>
+      </div>
     </div>
   </div>
-</div>
 
-<footer>
-  Data sourced from <a href="https://mempool.space" target="_blank" rel="noopener">mempool.space</a> &nbsp;·&nbsp;
-  <a href="https://1ml.com/node/0374fd7bf28122a8cef4eae815a9ee15514c3f349ee7eefd68bb6e602283461732" target="_blank" rel="noopener">View on 1ML</a> &nbsp;·&nbsp;
-  <a href="https://amboss.space/node/0374fd7bf28122a8cef4eae815a9ee15514c3f349ee7eefd68bb6e602283461732" target="_blank" rel="noopener">View on Amboss</a>
-</footer>
+  <footer>
+    <a href="https://1ml.com/node/0374fd7bf28122a8cef4eae815a9ee15514c3f349ee7eefd68bb6e602283461732" target="_blank" rel="noopener">1ML</a>
+    &nbsp;·&nbsp;
+    <a href="https://amboss.space/node/0374fd7bf28122a8cef4eae815a9ee15514c3f349ee7eefd68bb6e602283461732" target="_blank" rel="noopener">Amboss</a>
+    &nbsp;·&nbsp;
+    <a href="https://mempool.space/lightning/node/0374fd7bf28122a8cef4eae815a9ee15514c3f349ee7eefd68bb6e602283461732" target="_blank" rel="noopener">mempool.space</a>
+  </footer>
+
+</div>
 
 <div class="toast" id="toast">Copied!</div>
 
 <script>
-  const PUBKEY = '0374fd7bf28122a8cef4eae815a9ee15514c3f349ee7eefd68bb6e602283461732';
-  const API = `https://mempool.space/api/v1/lightning/nodes/${PUBKEY}`;
+  const URI = '0374fd7bf28122a8cef4eae815a9ee15514c3f349ee7eefd68bb6e602283461732@na6l6l23p24gb3gwundpdvz6haiyvpziay2pmb2oe4ocfoy4wz2ltxqd.onion:9735';
+
+  new QRCode(document.getElementById('qrcode'), {
+    text: URI,
+    width: 220,
+    height: 220,
+    colorDark: '#0a0a0f',
+    colorLight: '#ffffff',
+    correctLevel: QRCode.CorrectLevel.M,
+  });
 
   function copyText(text) {
     navigator.clipboard.writeText(text).then(() => showToast('Copied!')).catch(() => {
@@ -389,134 +312,8 @@
     const t = document.getElementById('toast');
     t.textContent = msg;
     t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 2000);
+    setTimeout(() => t.classList.remove('show'), 1800);
   }
-
-  function formatSats(sats) {
-    if (sats >= 100_000_000) return (sats / 100_000_000).toFixed(4) + ' BTC';
-    if (sats >= 1_000_000) return (sats / 1_000_000).toFixed(2) + ' M sats';
-    return sats.toLocaleString() + ' sats';
-  }
-
-  function timeAgo(ts) {
-    const diff = Math.floor((Date.now() / 1000) - ts);
-    if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
-    if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
-    return Math.floor(diff / 86400) + 'd ago';
-  }
-
-  function renderQR(uri) {
-    const el = document.getElementById('qrcode');
-    el.innerHTML = '';
-    new QRCode(el, {
-      text: uri,
-      width: 200,
-      height: 200,
-      colorDark: '#0a0a0f',
-      colorLight: '#ffffff',
-      correctLevel: QRCode.CorrectLevel.M,
-    });
-    const display = document.getElementById('qr-uri-display');
-    display.textContent = uri;
-    display.dataset.uri = uri;
-  }
-
-  function buildConnURI(pubkey, addr) {
-    return `${pubkey}@${addr.addr}`;
-  }
-
-  async function loadNode() {
-    try {
-      const res = await fetch(API);
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const d = await res.json();
-
-      // Alias
-      const alias = d.alias || 'BLUCIFER';
-      document.getElementById('node-alias').textContent = alias;
-      document.title = `${alias} — Lightning Node`;
-
-      // Status dot
-      const dot = document.getElementById('status-dot');
-      dot.classList.add('live');
-      dot.title = 'Live data';
-
-      // Stats
-      document.getElementById('stat-channels').textContent = (d.active_channel_count ?? d.channel_count ?? '—').toLocaleString();
-      document.getElementById('stat-channels-sub').textContent =
-        d.channel_count && d.active_channel_count
-          ? `${d.active_channel_count} active / ${d.channel_count} total`
-          : '';
-
-      const cap = d.capacity ?? d.total_capacity;
-      document.getElementById('stat-capacity').textContent = cap ? formatSats(cap) : '—';
-      document.getElementById('stat-capacity-sub').textContent = cap ? cap.toLocaleString() + ' sats' : '';
-
-      if (d.first_seen) {
-        const fsDate = new Date(d.first_seen * 1000);
-        document.getElementById('stat-age').textContent = fsDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-        document.getElementById('stat-age-sub').textContent = timeAgo(d.first_seen);
-      }
-
-      if (d.updated_at) {
-        document.getElementById('stat-updated').textContent = timeAgo(d.updated_at);
-      }
-
-      // Addresses
-      const addrs = d.addresses || d.sockets || [];
-      const list = document.getElementById('address-list');
-      list.innerHTML = '';
-
-      if (addrs.length === 0) {
-        list.innerHTML = '<li style="color:var(--muted);font-size:0.8rem;">No public addresses found</li>';
-        renderQR(PUBKEY);
-        document.getElementById('qr-uri-display').textContent = PUBKEY;
-        document.getElementById('qr-uri-display').dataset.uri = PUBKEY;
-        return;
-      }
-
-      let firstURI = '';
-      addrs.forEach((a, i) => {
-        const addr = typeof a === 'string' ? a : a.addr || a.address || '';
-        const type = typeof a === 'object' && a.network ? a.network.toUpperCase() : inferAddrType(addr);
-        const uri = `${PUBKEY}@${addr}`;
-        if (i === 0) firstURI = uri;
-
-        const li = document.createElement('li');
-        li.className = 'address-item';
-        li.onclick = () => copyText(uri);
-        li.innerHTML = `
-          <span class="addr-badge">${type}</span>
-          <div>
-            <div class="addr-text">${addr}</div>
-            <div class="conn-uri">${uri}</div>
-          </div>
-        `;
-        list.appendChild(li);
-      });
-
-      renderQR(firstURI || PUBKEY);
-
-    } catch (err) {
-      console.error(err);
-      document.getElementById('stat-channels').innerHTML = '<span style="color:var(--muted);font-size:0.9rem;">—</span>';
-      document.getElementById('stat-capacity').innerHTML = '<span style="color:var(--muted);font-size:0.9rem;">—</span>';
-      document.getElementById('stat-age').innerHTML = '<span style="color:var(--muted);font-size:0.9rem;">—</span>';
-      document.getElementById('stat-updated').innerHTML = '<span style="color:var(--muted);font-size:0.9rem;">—</span>';
-      document.getElementById('address-list').innerHTML =
-        '<li class="error-msg">Could not load node data. Check browser console for details.</li>';
-      renderQR(PUBKEY);
-    }
-  }
-
-  function inferAddrType(addr) {
-    if (addr.includes('.onion')) return 'TOR';
-    if (addr.match(/^\d{1,3}\.\d{1,3}/)) return 'IPv4';
-    if (addr.startsWith('[') || addr.includes(':')) return 'IPv6';
-    return 'TCP';
-  }
-
-  loadNode();
 </script>
 </body>
 </html>
