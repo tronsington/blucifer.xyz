@@ -125,48 +125,6 @@
       margin-top: 5px;
     }
 
-    .address-item {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 12px 14px;
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      cursor: pointer;
-      transition: border-color 0.15s;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .address-item:active { border-color: var(--accent); }
-    @media (hover: hover) { .address-item:hover { border-color: var(--accent); } }
-
-    .addr-badge {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      padding: 2px 7px;
-      font-size: 0.6rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    .addr-host {
-      font-size: 0.75rem;
-      color: var(--text);
-      word-break: break-all;
-    }
-
-    .addr-uri {
-      font-size: 0.65rem;
-      color: var(--muted);
-      word-break: break-all;
-      margin-top: 3px;
-    }
-
     .qr-center {
       display: flex;
       flex-direction: column;
@@ -241,18 +199,6 @@
       0374fd7bf28122a8cef4eae815a9ee15514c3f349ee7eefd68bb6e602283461732
     </div>
     <div class="copy-hint">Tap to copy</div>
-  </div>
-
-  <div class="section">
-    <div class="section-label">Connection Address</div>
-    <div class="address-item" onclick="copyText('0374fd7bf28122a8cef4eae815a9ee15514c3f349ee7eefd68bb6e602283461732@na6l6l23p24gb3gwundpdvz6haiyvpziay2pmb2oe4ocfoy4wz2ltxqd.onion:9735')">
-      <span class="addr-badge">TOR</span>
-      <div>
-        <div class="addr-host">na6l6l23p24gb3gwundpdvz6haiyvpziay2pmb2oe4ocfoy4wz2ltxqd.onion:9735</div>
-        <div class="addr-uri">0374fd7bf28122a8cef4eae815a9ee15514c3f349ee7eefd68bb6e602283461732@na6l6l23p24gb3gwundpdvz6haiyvpziay2pmb2oe4ocfoy4wz2ltxqd.onion:9735</div>
-      </div>
-    </div>
-    <div class="copy-hint">Tap to copy connection URI</div>
   </div>
 
   <div class="section">
